@@ -28,7 +28,7 @@ class BibleReader
       url = "http://www.bskorea.or.kr/infobank/korSearch/korbibReadpage.aspx?version=#{translation_code}&book=#{bible_english_code}&chap=#{chapter}"
       # puts open(url).read.gsub(/<BR><SPAN>/, '<BR></SPAN><SPAN>')
       page = Nokogiri::HTML(open(url).read.gsub(/<BR><SPAN>/, '<BR></SPAN><SPAN>'), nil)
-      puts page
+      # puts page
       # puts page.css('#tdBible1 span').map { |node| node.text.strip }
       page.search('.//div').remove
       page.search('.//a[@class="comment"]').remove
