@@ -146,7 +146,6 @@ class BibleShortcutHandler
         return :NO_BOOKNAME_HISTORY
       end
     else
-      puts shortcut
       return :INPUT_PATTERN_ERROR
     end
     

@@ -1,3 +1,4 @@
+#!/usr/bin/ruby
 #encoding: utf-8
 class Object
   def print_error_str
@@ -23,7 +24,7 @@ class Staff
     #puts text.split(',').length
     text.split(',').each do |t|
       #puts "each text: #{t}"
-      str =  @bible_clipper.clip(t)
+      str = @bible_clipper.clip(t)
       #puts str
       if str
         result << str
@@ -76,13 +77,12 @@ EOS
 else
   staff = Staff.new
   
-  ARGV.each do |text| 
-    #puts text
-    str = staff.search(text.downcase)
-    if str
-      puts "성공! 클립보드를 확인하세요(CMD/ctrl+'v')."
-    else
-      puts '입력하신 스트링이 이상합니다. 범위를 다시 확인해 주세요.'
-    end
+  text = ARGV.join(",")
+  #puts text
+  str = staff.search(text.downcase)
+  if str
+    puts "성공! 클립보드를 확인하세요(CMD/ctrl+'v')."
+  else
+    puts '입력하신 스트링이 이상합니다. 범위를 다시 확인해 주세요.'
   end
 end
