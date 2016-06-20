@@ -33,23 +33,16 @@ class BibleInfo
 	def self.bible_names
 		@@bible_name_to_chapter_len.keys
 	end
-	# def get_path(translation_code, bible_name)
-	# 	"./#{self.db_name}/#{translation_code}/#{"%02d_" % bible_name_to_code[bible_name]}#{bible_name}"
-	# end
-
-	# def get_chapter(translation_code, bible_name, chapter)
-	# 	file_name = "#{self.get_path(translation_code, bible_name)}/#{chapter}"
-	# 	buffer = File.open(file_name, 'r').read
-	# 	JSON.parse(buffer)
-	# end
-
+	
 	@@db_name = 'BibleDB'
 	@@translation_name_to_code =
 	{
 		'개역개정'=>'GAE',
-		'공동번역'=>'COGNEW',
+		'개역한글'=>'HAN',
+		'표준새번역'=>'SAE',
 		'새번역'=>'SAENEW',
-		'현대인'=>'HDB',
+		'공동번역'=>'COG',
+		'공동번역 개정판'=>'COGNEW',
 		'NIV'=>'NIV',
 		'KJV'=>'KJV',
 		'NASB'=>'NASB'
