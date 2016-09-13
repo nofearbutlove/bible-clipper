@@ -18,11 +18,34 @@ class BibleReader
     bible_name = BibleInfo.bible_shortname_to_name[bible_shortname]
     bible_code = BibleInfo.bible_name_to_code[bible_name]
     bible_english_code = BibleInfo.bible_name_to_english_code[bible_name]
-
+    
     dir = File.dirname(__FILE__)
     db_name = "#{dir}/db/#{translation_name}/#{"%02d_" % bible_code}#{bible_name}"
     # puts db_name
     file_name = "#{db_name}/#{chapter}"
+    
+    # url ="https://www.biblegateway.com/passage/?search=#{bible_english_code}#{chapter}&version=#{translation_code}"
+    # # puts open(url).read.gsub(/<BR><SPAN>/, '<BR></SPAN><SPAN>')
+    # page = Nokogiri::HTML(open(url).read, nil)
+    # # puts page
+    # # puts page.css('#tdBible1 span').map { |node| node.text.strip }
+    # page.search('.//div').remove
+    # page.search('.//a[@class="comment"]').remove
+    # page.search('.//font[@class="number"]').remove
+    # page.search('.//font[@class="smallTitle"]').remove
+    
+    
+    
+    
+    # puts page.xpath('//td[@id="tdBible1"]')
+    
+    # puts page.css('#tdBible1 span').map { |node| node.text.strip }
+    # page.xpath('//td[@id="tdBible1"]/span').each do |a|
+    #   puts a.content
+    # end
+    
+    # page.css('table li').map { |node| node.text.strip }
+    # page.css('#tdBible1 span').map { |node| node.text.strip }
     
     unless File.exist? file_name
       unless Dir.exist? db_name
@@ -58,7 +81,9 @@ class BibleReader
         # 개역개정 여호수아 22장 10절 문제 있음.
         
         # Bible Gateway
-        # https://www.biblegateway.com/passage/?search=gen1&version=NIV
+        # https://www.biblegateway.com/passage/?search=gen1&version=ESV
+        # puts "hi"
+        # puts "https://www.biblegateway.com/passage/?search=#{bible_english_code}#{chapter}&version=#{translation_code}"
         url = "http://www.holybible.or.kr/B_#{translation_code}/cgi/bibleftxt.php?VR=#{translation_code}&VL=#{bible_code}&CN=#{chapter}&CV=99"
 
         # Holybible!
