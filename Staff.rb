@@ -34,6 +34,7 @@ class Staff
       result += "\n"
       # IO.popen('pbcopy', 'w') { |f| f << result }
       Clipboard.copy(result)
+      # puts result
       result
     else
       nil
