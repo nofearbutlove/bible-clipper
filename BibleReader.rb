@@ -74,7 +74,7 @@ class BibleReader
         # end
         
         # page.css('table li').map { |node| node.text.strip }
-        page.css('#tdBible1 span').map { |node| node.text.strip }
+        chapter_content = page.css('#tdBible1 span').map { |node| node.text.strip }
       else
         # puts "영어"
         # Holybible
