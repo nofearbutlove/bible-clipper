@@ -19,7 +19,7 @@ class BibleClipper
       puts is_valid
       puts @sh
     end
-    
+
     if is_valid == :SUCCEEDED
       # puts @sh
       contents = Hash.new
@@ -77,7 +77,7 @@ class BibleClipper
         contents << Verse.new(@sh.bible_shortname, chapter, verse, line)
         verse += 1
       end
-      
+
     end
     contents
   end
@@ -89,6 +89,6 @@ end
 # while 1
 #   shortcut = gets.chomp
 #   puts shortcut
-#   # puts bible_clipper.clip(shortcut)  
+#   # puts bible_clipper.clip(shortcut)
 # end
 

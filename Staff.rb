@@ -46,7 +46,7 @@ class Staff
     search_text = text
     modified_text = search_text.downcase
     modified_text.gsub!(/\s+/, '')
-    modified_text.gsub!(/(참고|참조)/, '')
+    # modified_text.gsub!(/(참고|참조)/, '')
     # modified_text =~ s/\s+//g;
     # modified_text =~ s/참고//g;
     # modified_text =~ s/참조//g;
