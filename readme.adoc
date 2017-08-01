@@ -1,0 +1,15 @@
+= BibleClipper
+
+This ruby script is for copying some text on the Bible to clipboard.
+
+== Usage
+
+[source, bash]
+----
+Staff.rb 창1:1, 눅23:34
+----
+
+== Plan
+
+. Build it as a gem.
+. Gathering english bible text from biblegateway.com
