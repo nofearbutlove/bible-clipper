@@ -13,7 +13,7 @@ class BibleReader
 
   end
 
-    def get_chapter_from_web(translation_name, bible_shortname, chapter)
+    def get_chapter(translation_name, bible_shortname, chapter)
         translation_code = BibleInfo.translation_name_to_code[translation_name]
         bible_name = BibleInfo.bible_shortname_to_name[bible_shortname]
         bible_code = BibleInfo.bible_name_to_code[bible_name]
@@ -26,19 +26,13 @@ class BibleReader
             page.search('.//span[@class="num"]').remove
             chapter_content = page.css('.wide p').map { |node| node.text.strip }
         else
-            # puts "영어"
-            # Holybible
-            # 개역개정 여호수아 22장 10절 문제 있음.
-
-            # Bible Gateway
-            # https://www.biblegateway.com/passage/?search=gen1&version=ESV
-            # puts "hi"
-            # puts "https://www.biblegateway.com/passage/?search=#{bible_english_code}#{chapter}&version=#{translation_code}"
-            url = "http://www.holybible.or.kr/B_#{translation_code}/cgi/bibleftxt.php?VR=#{translation_code}&VL=#{bible_code}&CN=#{chapter}&CV=99"
-
-            # Holybible!
-            page = Nokogiri::HTML(open(url).read, nil, 'eucKR')
-            chapter_content = page.css('table li').map { |node| node.text.strip }
+            # TRANSLATION_CODE = transltion_code.upcase
+            url = "https://www.biblegateway.com/passage/?search=#{bible_english_code}#{chapter}&version=#{translation_code}"
+            puts "here"
+            page = Nokogiri::HTML(open(url).read, nil)
+            puts "here2"
+            page.search('.//span[@class="chapternum"]').remove
+            chapter_content = page.css('p .text').map { |node| node.text.strip }
         end
         if chapter_content.length == 0
             puts "Website is deactivated!"
@@ -48,7 +42,7 @@ class BibleReader
         chapter_content
     end
 
-    def get_chapter(translation_name, bible_shortname, chapter)
+    def get_chapter_test(translation_name, bible_shortname, chapter)
         translation_code = BibleInfo.translation_name_to_code[translation_name]
         bible_name = BibleInfo.bible_shortname_to_name[bible_shortname]
         bible_code = BibleInfo.bible_name_to_code[bible_name]
