@@ -1,15 +1,61 @@
 = BibleClipper
 
-This ruby script is for copying some text on the Bible to clipboard.
+This ruby script is for copying scriptures on the Bible to clipboard.
 
-== Usage
+== Getting Started
+
+=== Prerequisites
+
+Install ruby `2.4.x` or higher version.
+
+. For Windows Users
+[NOTE]
+====
+You will need `MinGW` to install `Nokogiri` gem.
+Install `MinGW` on the last step of installing ruby.
+====
+
+Install `Bundler`.
 
 [source, bash]
 ----
-Staff.rb 창1:1, 눅23:34
+> gem install bundler
 ----
 
-== Plan
+Install other gems.
+
+[source, bash]
+----
+bundle install
+----
+
+. For Linux Users
+[NOTE]
+====
+You will need the xclip or xsel program.
+On debian/ubuntu this is: `sudo apt-get install xclip`
+====
+
+
+
+Get scriptures from web.
+
+[source, bash]
+----
+ruby BibleCroller.rb
+----
+
+It needs several minutes.
+
+
+=== How to Use
+
+[source, bash]
+----
+ruby Staff.rb 창1:1, 3, 10:1, 눅23:34
+----
+
+== Todos
 
 . Build it as a gem.
-. Gathering english bible text from biblegateway.com
+. Gathering english Bible text from link:https://www.biblegateway.com/[biblegateway.com]
